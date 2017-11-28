@@ -1,0 +1,30 @@
+{
+    "rabbitmq": {
+        "host": "localhost",
+        "port": 5672,
+        "username": "guest",
+        "password": "guest",
+        "queues" : [
+            "rpc-cv_parsing_service"
+        ]
+    },
+
+    "influxdb": {
+        "host": "localhost",
+        "port": 8086,
+        "username": "guest",
+        "password": "guest",
+        "database": "cf"
+    },
+
+    "cf": {
+        "api": "https://api.cf.us10.hana.ondemand.com",
+        "username": "your_email_id",
+        "password": "your_password",
+        "org": "org",
+        "space": "space",
+        "apps": [
+            "app_to_monitor"
+        ]
+    }
+}
