@@ -2,29 +2,23 @@
     "rabbitmq": {
         "host": "localhost",
         "port": 5672,
-        "username": "guest",
-        "password": "guest",
         "queues" : [
-            "rpc-cv_parsing_service"
+            "some-queue-name"
         ]
     },
 
     "influxdb": {
-        "host": "localhost",
+        "host": "10.97.139.63",
         "port": 8086,
-        "username": "guest",
-        "password": "guest",
         "database": "cf"
     },
 
     "cf": {
-        "api": "https://api.cf.us10.hana.ondemand.com",
-        "username": "your_email_id",
-        "password": "your_password",
-        "org": "org",
-        "space": "space",
+        "api": "https://api.cf.eu1a.hana.ondemand.com",
+        "org": "SAP_ML",
+        "space": "validation-learning-recommender",
         "apps": [
-            "app_to_monitor"
+            "val-lr-recommender-rest-api-service"
         ]
     }
 }

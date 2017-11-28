@@ -1,6 +1,9 @@
 package cf
 
 import (
+	"errors"
+	"flag"
+
 	cfclient "github.com/cloudfoundry-community/go-cfclient"
 	"github.com/coding-yogi/cfmonitoring/config"
 	"github.com/coding-yogi/cfmonitoring/log"
@@ -21,6 +24,14 @@ type Client struct {
 // GetClient ...
 func (c *Client) GetClient() error {
 
+	cfUsername := flag.String("cfusername", "", "username")
+	cfPassword := flag.String("cfpassword", "", "password")
+	flag.Parse()
+
+	if *cfUsername == "" || *cfPassword == "" {
+		return errors.New("CF credentials are invalid or not set, Please use cfusername and cfpassword flags to set CF credentials")
+	}
+
 	settings, err := config.GetConfig()
 	if err != nil {
 		return err
@@ -28,8 +39,8 @@ func (c *Client) GetClient() error {
 
 	config := &cfclient.Config{
 		ApiAddress: settings.Cf.API,
-		Username:   settings.Cf.Username,
-		Password:   settings.Cf.Password,
+		Username:   *cfUsername,
+		Password:   *cfPassword,
 	}
 
 	log.Info("Connecting to CF")
