@@ -15,30 +15,24 @@ type Settings struct {
 
 // RabbitMQ ...
 type RabbitMQ struct {
-	Host     string
-	Port     int32
-	Username string
-	Password string
-	Queues   []string
+	Host   string
+	Port   int32
+	Queues []string
 }
 
 //InfluxDB ...
 type InfluxDB struct {
 	Host     string
 	Port     int32
-	Username string
-	Password string
 	Database string
 }
 
 //CF
 type Cf struct {
-	API      string
-	Username string
-	Password string
-	Org      string
-	Space    string
-	Apps     []string
+	API   string
+	Org   string
+	Space string
+	Apps  []string
 }
 
 // GetConfig ...
